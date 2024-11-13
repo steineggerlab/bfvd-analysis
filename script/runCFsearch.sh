@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-SEQ_FILE=<BFVD_ANALYSIS>/proteome_cover/concat_processed.fasta
-MSA_DIR=<BFVD_ANALYSIS>/proteome_cover/msa
+SEQ_FILE=proteome_cover/concat_processed.fasta
+MSA_DIR=proteome_cover/msa
 
 colabfold_search --db1 uniref30_2202_db \
 --db3 colabfold_envdb_202108_db \

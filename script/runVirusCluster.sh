@@ -1,15 +1,11 @@
 #!/bin/bash
 
 
-nomburgPDB=<VIRUSDB>/all_pdb/nomburg
-#bfvd=<FOLDSEEK_DB>/bfvd/bfvd
+nomburgPDB=../virusDB/all_pdb/nomburg
 bfvd=<FOLDSEEK_DB>/bfvd_logan/bfvd
-out=<BFVD_ANALYSIS>/virus_cluster
+out=virus_cluster
 nomburg=$out/db/nomburg
-#db=$out/db/virus
 db=$out/db/virus_logan
-
-#foldseek createdb $nomburgPDB $nomburg
 
 foldseek concatdbs $bfvd $nomburg $db
 foldseek concatdbs $bfvd"_h" $nomburg"_h" $db"_h"
