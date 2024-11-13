@@ -7,8 +7,8 @@
 #SBATCH --cpus-per-task=128
 #SBATCH --output="log/cf_search_proteome.out"
 
-SEQ_FILE=/home/seamustard52/bfvd-analysis/proteome_cover/concat_processed.fasta
-MSA_DIR=/home/seamustard52/bfvd-analysis/proteome_cover/msa
+SEQ_FILE=proteome_cover/concat_processed.fasta
+MSA_DIR=proteome_cover/msa
 
 colabfold_search --db1 uniref30_2202_db \
 --db3 colabfold_envdb_202108_db \

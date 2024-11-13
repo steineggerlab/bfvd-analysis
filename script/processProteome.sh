@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROTEOMEDIR=/home/seamustard52/bfvd-analysis/proteome_cover
+PROTEOMEDIR=proteome_cover
 
 awk '$0~/^>/{split($0,head,"|");header=">"head[2];next} $0!~/^>/ {seq[header]=seq[header]$0;next} END {for (i in seq) {print i; print seq[i]} }' $PROTEOMEDIR/fasta/*.fasta > $PROTEOMEDIR/concat.fasta
 

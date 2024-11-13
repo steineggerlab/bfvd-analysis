@@ -7,15 +7,11 @@
 #SBATCH -c 64
 #SBATCH -o log/sbatch_virus_cluster_logan.out
 
-nomburgPDB=/home/seamustard52/virusDB/all_pdb/nomburg
-#bfvd=/fast/databases/foldseek/bfvd/bfvd
+nomburgPDB=../virusDB/all_pdb/nomburg
 bfvd=/fast/databases/foldseek/bfvd_logan/bfvd
-out=/home/seamustard52/bfvd-analysis/virus_cluster
+out=virus_cluster
 nomburg=$out/db/nomburg
-#db=$out/db/virus
 db=$out/db/virus_logan
-
-#foldseek createdb $nomburgPDB $nomburg
 
 foldseek concatdbs $bfvd $nomburg $db
 foldseek concatdbs $bfvd"_h" $nomburg"_h" $db"_h"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FASTADIR=/home/seamustard52/bfvd-analysis/proteome_cover/fasta
+FASTADIR=proteome_cover/fasta
 
 wget -O $FASTADIR/sars_cov_2.fasta "https://rest.uniprot.org/uniprotkb/stream?download=true&format=fasta&query=%28%28proteome%3AUP000464024%29%29"
 wget -O $FASTADIR/bacteriophage_t4.fasta "https://rest.uniprot.org/uniprotkb/stream?download=true&format=fasta&query=%28%28proteome%3AUP000009087%29%29"

@@ -1,14 +1,14 @@
 #!/bin/bash
 
-OUTDIR=/home/seamustard52/bfvd-analysis/metadata
+OUTDIR=metadata
 
 # File paths
-SOURCE1=/home/seamustard52/virusDB/uniref30
-SOURCE2=/home/seamustard52/virusDB/uniref30_pred_swap
-REPS=/home/seamustard52/bfvd-analysis/uniref30_2302_db_virusdb_rep_processed.fasta
-BIOLOGICAL=/home/seamustard52/virusDB/seq/uniref30_2302_db_virusdb_diff_processed.fasta
-LOGAN1=/home/seamustard52/virusDB/logan/prediction_concat
-LOGAN2=/home/seamustard52/virusDB/logan/prediction_concat_swap
+SOURCE1=../uniref30
+SOURCE2=../uniref30_pred_swap
+REPS=uniref30_2302_db_virusdb_rep_processed.fasta
+BIOLOGICAL=../virusDB/seq/uniref30_2302_db_virusdb_diff_processed.fasta
+LOGAN1=../virusDB/logan/prediction_concat
+LOGAN2=../virusDB/logan/prediction_concat_swap
 awk -F">" '
     NR==FNR {if ($0~/>/) {swapped[$2]=$2};next}
     $0~/>/{
@@ -67,7 +67,7 @@ sed -e 's/unrelaxed/scores/g' -e 's/pdb/json/g' -e 's/\/uniref30\//\/uniref30_pr
 
 sed -e 's/unrelaxed/scores/g' -e 's/pdb/json/g' $OUTDIR/logan-entry_filepath_rep.tsv | xargs -I {} -P 32 bash -c  'getScore "$@"' _ {} > $OUTDIR/logan_r1-model_plddt_ptm.tsv
 
-for f in $(ls /home/seamustard52/bfvd-analysis/logan/msa); do name=${f%%.a3m}; n=$(grep -E "^>" /home/seamustard52/bfvd-analysis/logan/msa/$f| wc -l); echo $name$'\t'$n;done > $OUTDIR/logan-model_nmsa.tsv
+for f in $(ls logan/msa); do name=${f%%.a3m}; n=$(grep -E "^>" logan/msa/$f| wc -l); echo $name$'\t'$n;done > $OUTDIR/logan-model_nmsa.tsv
 
 awk -F"\t" 'BEGIN {OFS="\t"} NR==FNR {nmsa[$1]=$2;next} {print $1,nmsa[$1],$2,$3}' $OUTDIR/logan-model_nmsa.tsv $OUTDIR/logan_r1-model_plddt_ptm.tsv > $OUTDIR/logan-model_nmsa_plddt_ptm.tsv
 
