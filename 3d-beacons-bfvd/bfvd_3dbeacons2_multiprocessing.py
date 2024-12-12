@@ -43,13 +43,7 @@ def retrieve_uniprot(acc):
             ).text        
         print(f"LOG: Retrieved UniProt ID {ac_id} for {acc}")
     except:
-        try:
-            print(f"LOG: Trying again for {acc}")
-            ac_id, desc = retrieve_uniprot(acc)
-        except:
-            print(f"Error in parsing UniProt XML for {acc}!")
-            ac_id = ""
-            desc = ""
+        print(f"ERROR: Failed to retrieve UniProt ID for {acc}")
 
     return ac_id, desc
 
@@ -75,7 +69,7 @@ metadata = "/home/seamustard52/bfvd-analysis/metadata/bfvd_logan-model_length_un
 pathfile = "/home/seamustard52/bfvd-analysis/metadata/bfvd_logan-entry_filepath_rep.tsv"
 fasta_origin = "/home/seamustard52/bfvd-analysis/uniref30_2302_db_virusdb_rep.fasta" 
 uniparc_list = "/home/seamustard52/bfvd-analysis/3d-beacons-bfvd/uniparc.list"
-save_dir = "/home/seamustard52/bfvd-analysis/3d-beacons-bfvd/summary"
+save_dir = "/home/seamustard52/bfvd-analysis/3d-beacons-bfvd/summary-test"
 
 bfvd_df = pd.read_csv(metadata, sep="\t", header=None, index_col=False,
                       names=["model", "length", "unkcnt", "nmsa", "pLDDT", "ptm", "logan"])
