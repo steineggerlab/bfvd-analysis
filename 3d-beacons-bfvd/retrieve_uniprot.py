@@ -3,6 +3,7 @@ import pandas as pd
 import xml.etree.ElementTree as ET
 import requests
 from multiprocessing import Pool, Manager
+from tqdm import tqdm
 
 def retrieve_uniprot(acc):
     UNIPROT_XML_URL = "https://www.uniprot.org/uniprot"
@@ -53,7 +54,7 @@ def process_entry(args):
     return acc, id, desc, gene
 
 input = "/home/seamustard52/bfvd-analysis/3d-beacons-bfvd/metadata/bfvd_logan-entry_acc_start_end_len_plddt_taxid_organism_src.tsv"
-output = "/home/seamustard52/bfvd-analysis/3d-beacons-bfvd/metadata/uniprot-acc_length_taxid_organism_src_id_description_gene.tsv"
+output = "/home/seamustard52/bfvd-analysis/3d-beacons-bfvd/metadata/uniprot-acc_length_taxid_organism_src_id_description_gene2.tsv"
 
 bfvd_df = pd.read_csv(input, sep="\t", header = None, index_col=False,
                       names = ["model", "acc", "start", "end", "length", "pLDDT", "taxid", "organism", "src"],
@@ -68,12 +69,21 @@ uniprot_data = {}
 args = [(acc, data) for acc, data in acc_data.items()]
 
 with Pool(processes= os.cpu_count()) as pool:
-    results = pool.map(process_entry, args)
+    # results = pool.map(process_entry, args)
+    for acc, id, desc, gene in tqdm(pool.imap_unordered(process_entry, args), total=len(args)):
+        uniprot_data[acc] = {"id": id, "description": desc, "gene": gene}
+        print(f"LOG: Processed {acc}")
 
-for acc, id, desc, gene in results:
-    acc_data[acc]["id"] = id
-    acc_data[acc]["description"] = desc
-    acc_data[acc]["gene"] = gene
+for acc, data in uniprot_data.items():
+    acc_data[acc]["id"] = data["id"]
+    acc_data[acc]["description"] = data["description"]
+    acc_data[acc]["gene"] = data["gene"]
+
+# for acc, id, desc, gene in results:
+#     acc_data[acc]["id"] = id
+#     acc_data[acc]["description"] = desc
+#     acc_data[acc]["gene"] = gene
+#     print(f"LOG: Saved {acc}")
 
 acc_data_df = pd.DataFrame.from_dict(acc_data, orient='index')
 acc_data_df.to_csv(output, sep="\t", header=False)
