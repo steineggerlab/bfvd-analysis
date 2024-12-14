@@ -31,8 +31,14 @@ awk -F"\t" '
 
 awk -F"\t" '
     BEGIN {OFS="\t"}
-    NR==FNR {split($1,acc,"_"); tax[acc[1]]=$2"\t"$4;next}
-    {print $0,tax[$2]}
+    NR==FNR {split($1,acc,"_"); 
+    tax[acc[1]]=$2"\t"$4;next}
+    {if ($2 in tax)
+        {print $0,tax[$2]}
+    else {
+        print $0,"",""
+    }
+    }
 ' $TAXDATA $OUTDIR/tmp1 > $OUTDIR/tmp2
 
 awk -F"\t" ' 
