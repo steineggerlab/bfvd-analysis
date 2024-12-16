@@ -7,7 +7,8 @@
 #SBATCH -w super005
 #SBATCH -c 128
 
-QDB=/fast/databases/foldseek/bfvd_logan/bfvd
+#QDB=/fast/databases/foldseek/bfvd_logan/bfvd
+QDB=/fast/databases/foldseek/bfvd/bfvd
 AFDB=/fast/databases/foldseek/afdb/afdb50
 PDB=/fast/databases/foldseek/pdb/pdb100
 OUT=db_cover

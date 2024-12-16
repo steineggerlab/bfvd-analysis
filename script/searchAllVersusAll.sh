@@ -7,7 +7,8 @@
 #SBATCH -w super002
 #SBATCH -c 64
 
-BFVD=/fast/databases/foldseek/bfvd_logan/bfvd
+#BFVD=/fast/databases/foldseek/bfvd_logan/bfvd
+BFVD=/fast/databases/foldseek/bfvd/bfvd
 OUT=distribute/all_v_all
 
 foldseek search $BFVD $BFVD $OUT/bfvd_all_versus_all $SCRATCH -s 9.5 -e 0.01

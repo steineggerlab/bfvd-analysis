@@ -8,7 +8,8 @@
 #SBATCH -o log/sbatch_virus_cluster_logan.out
 
 nomburgPDB=../virusDB/all_pdb/nomburg
-bfvd=/fast/databases/foldseek/bfvd_logan/bfvd
+#bfvd=/fast/databases/foldseek/bfvd_logan/bfvd
+bfvd=/fast/databases/foldseek/bfvd/bfvd
 out=virus_cluster
 nomburg=$out/db/nomburg
 db=$out/db/virus_logan

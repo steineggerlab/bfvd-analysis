@@ -8,7 +8,8 @@
 #SBATCH -c 64
 
 PHAGE=../virusDB/application/Small_ACCs
-BFVD=/fast/databases/foldseek/bfvd_logan/bfvd
+#BFVD=/fast/databases/foldseek/bfvd_logan/bfvd
+BFVD=/fast/databases/foldseek/bfvd/bfvd
 OUT=phage_annotation/logan
 
 for sample in $(find $PHAGE -maxdepth 1 -type d -name gac* );
