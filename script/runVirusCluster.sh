@@ -2,7 +2,8 @@
 
 
 nomburgPDB=../virusDB/all_pdb/nomburg
-bfvd=<FOLDSEEK_DB>/bfvd_logan/bfvd
+#bfvd=<FOLDSEEK_DB>/bfvd_logan/bfvd
+bfvd=<FOLDSEEK_DB>/bfvd/bfvd
 out=virus_cluster
 nomburg=$out/db/nomburg
 db=$out/db/virus_logan

@@ -4,7 +4,8 @@ VIRUSKEYS=<TMP>/uniref30_2302_virus-members_keys.tsv
 DISTRIBUTE=distribute
 LCADIR=$DISTRIBUTE/lca
 UNIREF30=<COLABFOLD_DB>/uniref30_2302_db
-BFVD=<FOLDSEEK_DB>/bfvd_logan/bfvd
+#BFVD=<FOLDSEEK_DB>/bfvd_logan/bfvd
+BFVD=<FOLDSEEK_DB>/bfvd/bfvd
 
 ## Update mapping file
 awk -F"\t" 'NR==FNR {split($1,uniref100,"_");tax[uniref100[2]]=$2;next} {print $1"\t"tax[$2]}' $LCADIR/uniref100_2302_accession_mapping.tsv $UNIREF30"_seq_h_accessions.tsv" > $LCADIR/uniref30_2302_db_mapping

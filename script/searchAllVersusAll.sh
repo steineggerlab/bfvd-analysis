@@ -1,7 +1,8 @@
 #!/bin/bash
 
 
-BFVD=<FOLDSEEK_DB>/bfvd_logan/bfvd
+#BFVD=<FOLDSEEK_DB>/bfvd_logan/bfvd
+BFVD=<FOLDSEEK_DB>/bfvd/bfvd
 OUT=distribute/all_v_all
 
 foldseek search $BFVD $BFVD $OUT/bfvd_all_versus_all $SCRATCH -s 9.5 -e 0.01

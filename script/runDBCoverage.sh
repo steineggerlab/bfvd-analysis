@@ -1,7 +1,8 @@
 #!/bin/bash
 
 
-QDB=<FOLDSEEK_DB>/bfvd_logan/bfvd
+#QDB=<FOLDSEEK_DB>/bfvd_logan/bfvd
+QDB=<FOLDSEEK_DB>/bfvd/bfvd
 AFDB=<FOLDSEEK_DB>/afdb/afdb50
 PDB=<FOLDSEEK_DB>/pdb/pdb100
 OUT=db_cover

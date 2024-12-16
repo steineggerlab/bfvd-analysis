@@ -2,7 +2,8 @@
 
 
 PHAGE=../virusDB/application/Small_ACCs
-BFVD=<FOLDSEEK_DB>/bfvd_logan/bfvd
+#BFVD=<FOLDSEEK_DB>/bfvd_logan/bfvd
+BFVD=<FOLDSEEK_DB>/bfvd/bfvd
 OUT=phage_annotation/logan
 
 for sample in $(find $PHAGE -maxdepth 1 -type d -name gac* );
