@@ -11,16 +11,14 @@ structures of viral proteins.
 ## BFVD v3
 | Folder | Contents |
 |---|---|
-| `prediction/` | base MSAs and templates, Logan50 search, ColabFold prediction, N<sub>eff</sub> of base vs base+Logan50 MSAs |
-| `benchmark/` | benchmark of Logan50 MSA augmentation and templates against experimental structures |
-| `analysis/` | sequence and structure clustering of BFVD v3, jointly with BFVD v2 |
+| `prediction/` | Data production code for base MSAs, templates, Logan50 search, ColabFold prediction |
+| `benchmark/` | benchmark of structure prediction condition |
+| `analysis/` | data analysis scripts |
 | `common/` | site configuration (`env.example.sh`) |
-
-The scripts were run on an HPC cluster; submit them with your own scheduler settings.
 
 ### Running
 ```bash
-conda env create -f environment.yml && conda activate bfvd-analysis   # MMseqs2, Foldseek, Python, R
+conda env create -f environment.yml && conda activate bfvd-analysis
 cp common/env.example.sh common/env.sh                                 # then set paths and databases
 ```
 
