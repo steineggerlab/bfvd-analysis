@@ -73,4 +73,4 @@ if __name__ == "__main__":
     if len(sys.argv) > 2:
         process_file(sys.argv[1], sys.argv[2])
     else:
-        print("Usage: python expand_pdb.py input.txt output.txt")
+        print("Usage: python parse_uniprot_retrieval.py input.txt output.txt")
