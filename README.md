@@ -22,7 +22,7 @@ All code is in `script_v3/`.
 ```bash
 cd script_v3
 conda env create -f environment.yml && conda activate bfvd-analysis
-cp common/env.example.sh common/env.sh                                 # then set paths and databases
+cp common/env.example.sh common/env.sh # then set paths and databases
 ```
 
 ## Other code

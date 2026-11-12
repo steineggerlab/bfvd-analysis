@@ -31,8 +31,8 @@ if [ -f "$OUT_TSV" ]; then
 fi
 
 mkdir -p "$TMP"
-echo "=== $(date) : clustering $SEQDB with mmseqs linclust (min-seq-id=$MIN_SEQ_ID, -c=$COV) ==="
-# "$MMSEQS" cluster "$SEQDB" "$CLUDB" "$TMP" --min-seq-id "$MIN_SEQ_ID" -c "$COV" --threads "$THREADS"
+echo "=== $(date) : clustering $SEQDB with mmseqs (min-seq-id=$MIN_SEQ_ID, -c=$COV) ==="
+"$MMSEQS" cluster "$SEQDB" "$CLUDB" "$TMP" --min-seq-id "$MIN_SEQ_ID" -c "$COV" --threads "$THREADS"
 
 echo "--- writing cluster tsv ---"
 "$MMSEQS" createtsv "$SEQDB" "$SEQDB" "$CLUDB" "$OUT_TSV"
