@@ -1,6 +1,6 @@
 #!/bin/bash
-# Site configuration for the pipeline scripts (prediction/, benchmark/, analysis/clusterV2V3.sh).
-# Copy to common/env.sh and edit:
+# Site configuration for the pipeline scripts (prediction/, benchmark/, analysis/clusterV2V3.sh,
+# analysis/searchProteome.sh). Copy to common/env.sh and edit:
 #   cp common/env.example.sh common/env.sh
 # Scripts source ../common/env.sh (or ./common/env.sh when run from the repository root).
 
